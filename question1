@@ -2,9 +2,15 @@
 
 # Check if the number of arguments is not equal to 3
 if [ $# -ne 3 ]; then
-    echo "Error: The script requires exactly 3 arguments." > error.txt
-    exit 1
+  # If the number of arguments is not 3, output an error message to error.txt    
+echo "Error: The script requires exactly 3 arguments." > error.txt
+  # Exit the script with an error code    
+exit 1
 fi
 
 # If the number of arguments is correct, sort the numbers in ascending order and write them to a file
+# Use echo to create a newline-separated list of the arguments, then pipe it to sort to sort them numerically
+# Save the sorted numbers to a file called numbers.txt
 echo -e "$1\n$2\n$3" | sort -n > numbers.txt
+# Provide a success message
+echo "Numbers successfully sorted and stored in numbers.txt."
